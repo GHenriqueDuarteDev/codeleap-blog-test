@@ -32,7 +32,7 @@ Pré-requisitos: É necessário ter o **Node.js** e o **pnpm** (ou npm/yarn) ins
 1. Clone o repositório:
 
 ```bash
-git clone [https://github.com/GHenriqueDuarteDev/codeleap-blog-test](https://github.com/GHenriqueDuarteDev/codeleap-blog-test)
+git clone https://github.com/GHenriqueDuarteDev/codeleap-blog-test
 ```
 
 2. Acesse a pasta do projeto:
