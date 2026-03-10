@@ -37,21 +37,25 @@ git clone [https://github.com/GHenriqueDuarteDev/codeleap-blog-test](https://git
 
 2. Acesse a pasta do projeto:
 
-Bash
+```bash
 cd codeleap-blog-test
+```
 
 3. Instale as dependências:
 
-Bash
+```bash
 pnpm install
+```
 
 4. Inicie o servidor de desenvolvimento:
 
-Bash
+```bash
 pnpm dev
+```
 
 A aplicação estará disponível no seu navegador em http://localhost:5173.
 
 🌐 Deploy
 O projeto está publicado e pode ser acessado através do link:
-[Inserir o link da Vercel/Netlify aqui]
+
+[[CodeLeap Blog Test - Deploy na Vercel](https://codeleap-blog-test.vercel.app/)]
