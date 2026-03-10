@@ -22,7 +22,7 @@ export function SignUp() {
   }
 
   return (
-    <main className="flex h-svh w-full bg-[#DDDDDD]">
+    <main className="flex min-h-svh w-full bg-[#DDDDDD]">
       <div className="border flex flex-col gap-3 my-auto mx-auto bg-white border-gray-100 rounded-2xl p-4 w-full max-w-[500px]">
         <h1 className="text-[22px] font-bold">Welcome to CodeLeap network!</h1>
 
