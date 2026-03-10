@@ -58,4 +58,4 @@ A aplicação estará disponível no seu navegador em http://localhost:5173.
 🌐 Deploy
 O projeto está publicado e pode ser acessado através do link:
 
-[[CodeLeap Blog Test - Deploy na Vercel](https://codeleap-blog-test.vercel.app/)]
+[CodeLeap Blog Test - Deploy na Vercel](https://codeleap-blog-test.vercel.app/)
