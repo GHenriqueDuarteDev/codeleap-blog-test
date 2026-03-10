@@ -8,6 +8,7 @@ import { useUserStore } from "../store/useUserStore";
 import { useCreatePost } from "../hooks/useCreatePost";
 import { useState } from "react";
 import { formatRelativeTime } from "../utils/formatDate";
+import { PostSkeleton } from "../components/ui/PostSkeleton";
 
 export function MainFeed() {
   const { data, isLoading, isError } = usePosts();
@@ -39,18 +40,18 @@ export function MainFeed() {
   }
   console.log(data);
   return (
-    <div className="min-h-svh w-full flex flex-col items-center bg-[#DDDDDD]">
-      <div className="max-w-200 w-full h-full bg-white">
+    <main className="min-h-svh w-full flex flex-col items-center bg-[#DDDDDD]">
+      <div className="max-w-200 w-full min-h-svh bg-white">
         <div className="bg-[#7695EC] p-6">
           <h1 className="font-bold text-[22px] text-white">CodeLeap Network</h1>
         </div>
         <div className="gap-5 flex flex-col p-6">
           <Card>
             <div className="py-4 px-5 flex flex-col gap-4">
-              <h1 className="font-bold">What’s on your mind?</h1>
+              <h2 className="font-bold">What’s on your mind?</h2>
               <form onSubmit={onSubmit} className="flex flex-col gap-4">
                 <div className="flex flex-col gap-1">
-                  <p className="text-[16px]">Title</p>
+                  <label className="text-[16px]">Title</label>
                   <Input
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
@@ -58,7 +59,7 @@ export function MainFeed() {
                   />
                 </div>
                 <div className="flex flex-col gap-1">
-                  <p className="text-[16px]">Content</p>
+                  <label className="text-[16px]">Content</label>
                   <Input
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
@@ -79,12 +80,15 @@ export function MainFeed() {
               </form>
             </div>
           </Card>
-          {isLoading && <p className="text-center text-gray-500">Loading posts...</p>}
+
+          {isLoading &&
+            Array.from({ length: 3 }).map((_, index) => <PostSkeleton key={`skeleton-${index}`} />)}
           {isError && <p className="text-center text-red-500">Error fetching posts.</p>}
+
           {data?.results.map((post) => (
             <Card key={post.id}>
               <div className="flex items-center py-3 px-5 justify-between bg-[#7695EC]">
-                <h1 className="font-bold text-[22px] text-white">{post.title}</h1>
+                <h3 className="font-bold text-[22px] text-white">{post.title}</h3>
                 <div className="flex gap-4">
                   <DialogDelete postId={post.id} postUserName={post.username} />
                   <DialogEdit post={post} />
@@ -92,7 +96,7 @@ export function MainFeed() {
               </div>
               <div className="px-5 py-3 font-normal text-[18px] text-[#777777] flex flex-col gap-2">
                 <div className="flex justify-between">
-                  <h2 className="font-bold">@{post.username}</h2>
+                  <h4 className="font-bold">@{post.username}</h4>
                   <p>{formatRelativeTime(post.created_datetime)}</p>
                 </div>
                 <p className="text-black whitespace-pre-wrap wrap-break-word">{post.content}</p>
@@ -101,6 +105,6 @@ export function MainFeed() {
           ))}
         </div>
       </div>
-    </div>
+    </main>
   );
 }

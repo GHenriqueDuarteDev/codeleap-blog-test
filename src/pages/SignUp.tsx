@@ -28,7 +28,7 @@ export function SignUp() {
 
         <form onSubmit={onSubmit} className="flex flex-col gap-4">
           <div className="flex flex-col gap-1">
-            <p className="text-[16px]">Please enter your username</p>
+            <label className="text-[16px]">Please enter your username</label>
             <Input
               placeholder="John doe"
               value={userNameInput}
