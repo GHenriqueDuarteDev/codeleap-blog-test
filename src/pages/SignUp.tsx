@@ -22,13 +22,13 @@ export function SignUp() {
   }
 
   return (
-    <main className="flex h-svh w-full bg-[#DDDDDD]">
+    <main className="flex min-h-svh w-full bg-[#DDDDDD]">
       <div className="border flex flex-col gap-3 my-auto mx-auto bg-white border-gray-100 rounded-2xl p-4 w-full max-w-[500px]">
         <h1 className="text-[22px] font-bold">Welcome to CodeLeap network!</h1>
 
         <form onSubmit={onSubmit} className="flex flex-col gap-4">
           <div className="flex flex-col gap-1">
-            <p className="text-[16px]">Please enter your username</p>
+            <label className="text-[16px]">Please enter your username</label>
             <Input
               placeholder="John doe"
               value={userNameInput}

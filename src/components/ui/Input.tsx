@@ -13,7 +13,7 @@ type FieldProps = InputProps | TextareaProps;
 
 export function Input({ className, ...props }: FieldProps) {
   const baseStyles =
-    "border border-gray-500 rounded-lg px-3 py-1 placeholder:text-sm placeholder:opacity-50";
+    "border border-gray-500 rounded-lg px-3 py-1 placeholder:text-sm placeholder:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500";
 
   if (props.as === "textarea") {
     const { ...textareaProps } = props;
