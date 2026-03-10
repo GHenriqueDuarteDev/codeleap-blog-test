@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button } from "../components/ui/button";
-import { Input } from "../components/ui/input";
+import { Button } from "../components/ui/Button";
+import { Input } from "../components/ui/Input";
 import { useUserStore } from "../store/useUserStore";
 
 export function SignUp() {
