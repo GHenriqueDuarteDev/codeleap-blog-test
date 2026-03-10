@@ -1,8 +1,8 @@
 import { Button } from "../components/ui/Button";
 import { Card } from "../components/ui/Card";
-import trashIcon from "../assets/trash-icon.svg";
-import editIcon from "../assets/edit-icon.svg";
 import { Input } from "../components/ui/Input";
+import { DialogDelete } from "../components/ui/DialogDelete";
+import { DialogEdit } from "../components/ui/DialogEdit";
 
 export function MainFeed() {
   return (
@@ -26,7 +26,7 @@ export function MainFeed() {
                 </div>
 
                 <div className="flex justify-end">
-                  <Button className="px-6 py-1" type="submit">
+                  <Button className="px-6 py-1 bg-[#7695EC] text-white" type="submit">
                     Create
                   </Button>
                 </div>
@@ -37,12 +37,8 @@ export function MainFeed() {
             <div className="flex items-center py-3 px-5 justify-between bg-[#7695EC]">
               <h1 className="font-bold text-[22px] text-white">title</h1>
               <div className="flex gap-5">
-                <Button>
-                  <img src={trashIcon} alt="Delete" />
-                </Button>
-                <Button>
-                  <img src={editIcon} alt="Edit" />
-                </Button>
+                <DialogDelete />
+                <DialogEdit />
               </div>
             </div>
             <div className="px-5 py-3 font-normal text-[18px] text-[#777777] flex flex-col gap-2">
