@@ -37,7 +37,11 @@ export function SignUp() {
           </div>
 
           <div className="flex justify-end">
-            <Button type="submit" disabled={isButtonDisabled}>
+            <Button
+              className="px-6 py-1 uppercase text-white bg-[#7695EC]"
+              type="submit"
+              disabled={isButtonDisabled}
+            >
               enter
             </Button>
           </div>

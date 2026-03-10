@@ -1,17 +1,25 @@
 import type { ComponentProps } from "react";
 import { cn } from "../../utils/cn";
 
-type InputProps = ComponentProps<"input">;
+type InputProps = ComponentProps<"input"> & {
+  as?: "input";
+};
 
-export function Input({ className, type = "text", ...props }: InputProps) {
-  return (
-    <input
-      type={type}
-      className={cn(
-        "border border-gray-500 rounded-lg px-3 placeholder:text-sm placeholder:opacity-50",
-        className
-      )}
-      {...props}
-    />
-  );
+type TextareaProps = ComponentProps<"textarea"> & {
+  as: "textarea";
+};
+
+type FieldProps = InputProps | TextareaProps;
+
+export function Input({ className, ...props }: FieldProps) {
+  const baseStyles =
+    "border border-gray-500 rounded-lg px-3 py-1 placeholder:text-sm placeholder:opacity-50";
+
+  if (props.as === "textarea") {
+    const { ...textareaProps } = props;
+    return <textarea className={cn(baseStyles, "resize-y", className)} {...textareaProps} />;
+  }
+
+  const { type = "text", ...inputProps } = props as InputProps;
+  return <input type={type} className={cn(baseStyles, className)} {...inputProps} />;
 }

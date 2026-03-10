@@ -8,7 +8,7 @@ export function Button({ children, className, type = "button", ...props }: Butto
     <button
       type={type}
       className={cn(
-        "rounded-lg max-w-fit px-6 py-1 bg-[#7695EC] uppercase text-white font-bold text-[16px] cursor-pointer disabled:bg-gray-400 disabled:cursor-not-allowed",
+        "rounded-lg max-w-fit font-bold text-[16px] cursor-pointer disabled:bg-gray-400 disabled:cursor-not-allowed",
         className
       )}
       {...props}
