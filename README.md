@@ -1,73 +1,57 @@
-# React + TypeScript + Vite
+# CodeLeap Network - Front-end Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Um projeto front-end desenvolvido como parte do processo seletivo da **CodeLeap**. A aplicação consiste em uma rede social simples no formato CRUD (Create, Read, Update, Delete), onde os usuários podem realizar postagens, editá-las e excluí-las.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologias Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Este projeto foi construído focado em performance, tipagem estática e boas práticas de UI/UX, utilizando as ferramentas mais modernas do ecossistema React:
 
-## React Compiler
+- **[React](https://react.dev/) + [Vite](https://vitejs.dev/):** Para uma renderização rápida e ambiente de desenvolvimento otimizado.
+- **[TypeScript](https://www.typescriptlang.org/):** Para garantir segurança de tipos e evitar bugs em tempo de execução.
+- **[Tailwind CSS v4](https://tailwindcss.com/):** Para uma estilização utilitária ágil, responsiva e alinhada perfeitamente (Pixel Perfect) com o design do Figma.
+- **[TanStack Query (React Query)](https://tanstack.com/query/latest):** Gerenciamento de estado assíncrono, cache inteligente e revalidação automática de dados (sem necessidade de recarregar a página após criar, editar ou deletar posts).
+- **[Zustand](https://zustand-demo.pmnd.rs/):** Gerenciamento de estado global leve e sem boilerplate para manter o `username` do usuário logado persistido localmente.
+- **[Radix UI](https://www.radix-ui.com/):** Componentes _Headless_ para garantir que os Modais de Edição e Exclusão sejam 100% acessíveis (suporte a teclado e leitores de tela) e controláveis.
+- **[Axios](https://axios-http.com/):** Cliente HTTP para comunicação eficiente com a REST API em Django.
+- **[date-fns](https://date-fns.org/):** Para formatação amigável do tempo de postagem (ex: "25 minutes ago").
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Funcionalidades e Diferenciais Implementados
 
-## Expanding the ESLint configuration
+Além dos requisitos básicos do CRUD, o projeto conta com:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Autenticação Local:** O `username` é salvo e persistido, garantindo que o usuário não perca o acesso ao recarregar a página. Rotas protegidas impedem o acesso ao feed sem um nome de usuário.
+- **Validação de Propriedade:** Botões de Edição e Exclusão aparecem estritamente nos posts criados pelo usuário atual.
+- **Loading States Inteligentes:** Implementação de _Skeletons_ animados durante o carregamento inicial da API, melhorando drasticamente a percepção de performance (UX).
+- **Proteção de Formulários:** Botões de _submit_ são desabilitados dinamicamente se os campos estiverem vazios ou enquanto as requisições estão em andamento (evitando duplicação de dados).
+- **Acessibilidade (a11y):** Uso de HTML semântico (`<main>`, `<label>`, hierarquia correta de Headings) e gerenciamento de foco nos modais.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## ⚙️ Como executar o projeto localmente
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Pré-requisitos: É necessário ter o **Node.js** e o **pnpm** (ou npm/yarn) instalados na sua máquina.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Clone o repositório:
+
+```bash
+git clone [https://github.com/GHenriqueDuarteDev/codeleap-blog-test](https://github.com/GHenriqueDuarteDev/codeleap-blog-test)
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Acesse a pasta do projeto:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Bash
+cd codeleap-blog-test
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+3. Instale as dependências:
+
+Bash
+pnpm install
+
+4. Inicie o servidor de desenvolvimento:
+
+Bash
+pnpm dev
+
+A aplicação estará disponível no seu navegador em http://localhost:5173.
+
+🌐 Deploy
+O projeto está publicado e pode ser acessado através do link:
+[Inserir o link da Vercel/Netlify aqui]
